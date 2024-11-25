@@ -20,8 +20,7 @@ public class Address {
      * @param st      Describes the state.
      * @param zipCode Describes the zip code.
      */
-    public Address(String road, String town, String st,
-                   String zipCode) {
+    public Address(String road, String town, String st, String zipCode) {
         street = road;
         city = town;
         state = st;
@@ -34,7 +33,6 @@ public class Address {
      * @return Information about the address.
      */
     public String toString() {
-        return (street + ", " + city +
-                ", " + state + " " + zip);
+        return (street + ", " + city + ", " + state + " " + zip);
     }
 }
