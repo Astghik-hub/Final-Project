@@ -16,8 +16,7 @@ public class Person {
      * @param first     The person's first name.
      * @param residence The person's address.
      */
-    public Person(String last, String first,
-                  Address residence) {
+    public Person(String last, String first, Address residence) {
         lastName = last;
         firstName = first;
         home = residence;
@@ -29,7 +28,6 @@ public class Person {
      * @return Information about the person.
      */
     public String toString() {
-        return (firstName + " " + lastName +
-                ", " + home.toString());
+        return (firstName + " " + lastName + ", " + home.toString());
     }
 }

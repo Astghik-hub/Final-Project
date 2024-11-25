@@ -14,8 +14,7 @@ public class Money {
      */
     public Money(double amount) {
         if (amount < 0) {
-            System.out.println("Error: Negative amounts " +
-                               "of money are not allowed.");
+            System.out.println("Error: Negative amounts " + "of money are not allowed.");
             System.exit(0);
         } else {
             long allCents = Math.round(amount * 100);
@@ -23,8 +22,16 @@ public class Money {
             cents = allCents % 100;
         }
     }
-// ADD LINES FOR TASK #1 HERE
-// Document and write a copy constructor
+
+    /**
+     * Copy Constructor
+     *
+     * @param anotherMoney another object of the same class
+     */
+    public Money(Money anotherMoney) {
+        dollars = anotherMoney.dollars;
+        cents = anotherMoney.cents;
+    }
 
     /**
      * The add method
@@ -38,9 +45,7 @@ public class Money {
         sum.cents = this.cents + otherAmount.cents;
         long carryDollars = sum.cents / 100;
         sum.cents = sum.cents % 100;
-        sum.dollars = this.dollars +
-                      otherAmount.dollars +
-                      carryDollars;
+        sum.dollars = this.dollars + otherAmount.dollars + carryDollars;
         return sum;
     }
 
@@ -78,20 +83,33 @@ public class Money {
      */
     public int compareTo(Money amount) {
         int value;
-        if (this.dollars < amount.dollars)
-            value = -1;
-        else if (this.dollars > amount.dollars)
-            value = 1;
-        else if (this.cents < amount.cents)
-            value = -1;
-        else if (this.cents > amount.cents)
-            value = 1;
-        else
-            value = 0;
+        if (this.dollars < amount.dollars) value = -1;
+        else if (this.dollars > amount.dollars) value = 1;
+        else if (this.cents < amount.cents) value = -1;
+        else if (this.cents > amount.cents) value = 1;
+        else value = 0;
         return value;
     }
-// ADD LINES FOR TASK #2 HERE
-// Document and write an equals method
-// Document and write a toString method
-}
 
+    /**
+     * The equals method
+     *
+     * @param anotherMoney object of the same class
+     * @return true if the dollars and the cents of
+     * the calling object are the same as the dollars
+     * and the cents of the parameter object. Otherwise,
+     * it returns false
+     */
+    public boolean equals(Money anotherMoney) {
+        return dollars == anotherMoney.dollars && cents == anotherMoney.cents;
+    }
+
+    /**
+     * The toString method
+     *
+     * @return String that looks like currency
+     */
+    public String toString() {
+        return String.format("$%d.%02d", dollars, cents);
+    }
+}
